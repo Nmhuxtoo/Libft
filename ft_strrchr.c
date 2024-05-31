@@ -19,18 +19,18 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	int	longitud;
+	char	*ret;
 
-	longitud = ft_strlen(str);
-	while (longitud >= 0)
+	ret = 0;
+	while (*s)
 	{
-		if (str[longitud] == c)
-		{
-			return ((char *)&str[longitud]);
-		}
-		longitud--;
+		if (*s == (unsigned char)c)
+			ret = (char *)s;
+		++s;
 	}
-	return (NULL);
+	if (!c)
+		ret = ((char *)s);
+	return (ret);
 }
 
 /*

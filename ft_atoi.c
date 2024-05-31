@@ -18,22 +18,25 @@
 
 int	ft_atoi(const char *str)
 {
-	int	nb;
-	int	sign;
+	int		sign;
+	long	ret;
 
-	nb = 0;
+	ret = 0;
 	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	while (*str == '-' || *str == '+')
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '+' || *str == '-')
+		if (*(str++) == '-')
+			sign *= -1;
+	while (ft_isdigit(*str))
 	{
-		if (*str == '-')
-			sign = -sign;
-		str++;
+		ret = ret * 10 + sign * (*str++ - '0');
+		if (ret > INT_MAX)
+			return (-1);
+		else if (ret < INT_MIN)
+			return (0);
 	}
-	while (*str <= '9' && *str >= '0')
-		nb = (nb * 10) + (*str++ - '0');
-	return (nb * sign);
+	return ((int)ret);
 }
 
 /*

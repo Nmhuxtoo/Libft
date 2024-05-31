@@ -15,42 +15,30 @@
 
 // Finish
 
-int	flag(char const *s1, char c)
+static int	ft_isset(char c, const char *set)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i])
-		if (s1[i++] == c)
+	while (*set)
+		if (c == *set++)
 			return (1);
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	i;
-	char	*new;
-	size_t	len;
-	size_t	n;
+	char	*ret;
+	char	*start;
+	char	*end;
 
-	i = 0;
-	n = 0;
-	if (!s1)
-		return (NULL);
-	len = ft_strlen(s1);
-	while (flag(set, s1[i]) && s1[i])
-		i++;
-	while (flag(set, s1[len - 1]) && (len - 1))
-		len--;
-	if (len < 1)
-		len = i;
-	new = malloc(len - i + 1);
-	if (!new)
-		return (NULL);
-	while (i < len)
-		new[n++] = s1[i++];
-	new[n] = '\0';
-	return (new);
+	if (!s1 || !set)
+		return (0);
+	start = (char *)s1;
+	end = start + ft_strlen(s1);
+	while (*start && ft_isset(*start, set))
+		++start;
+	while (start < end && ft_isset(*(end - 1), set))
+		--end;
+	ret = ft_substr(start, 0, end - start);
+	return (ret);
 }
 
 /*

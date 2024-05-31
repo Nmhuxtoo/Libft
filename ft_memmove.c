@@ -13,20 +13,20 @@
 #include <stdio.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *str1, const void *str2, size_t len)
 {
-	unsigned char		*pdst;
-	unsigned const char	*psrc;
+	unsigned char		*p_str1;
+	unsigned const char	*p_str2;
 
-	pdst = (unsigned char *)dst;
-	psrc = (unsigned const char *)src;
-	if (dst < src)
-		return (ft_memcpy(dst, src, len));
-	if (!len || dst == src)
-		return (dst);
-	while (len--)
-		pdst[len] = psrc[len];
-	return (dst);
+	if (str1 < str2)
+		return (ft_memcpy(str1, str2, n));
+	p_str1 = (unsigned char *)str1;
+	p_str2 = (unsigned const char *)str2;
+	if (!n || str1 == str2)
+		return (str1);
+	while (n--)
+		p_str1[n] = p_str2[n];
+	return (str1);
 }
 
 /*
