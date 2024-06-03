@@ -6,7 +6,7 @@
 /*   By: jdias-go <jdias-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:31:49 by jdias-go          #+#    #+#             */
-/*   Updated: 2024/04/25 18:07:13 by jdias-go         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:57:23 by jdias-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,31 @@
 
 int	ft_atoi(const char *str)
 {
-	int		sign;
-	long	ret;
+	int	num;
+	int	isneg;
+	int	i;
 
-	ret = 0;
-	sign = 1;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '+' || *str == '-')
-		if (*(str++) == '-')
-			sign *= -1;
-	while (ft_isdigit(*str))
+	num = 0;
+	isneg = 1;
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'
+			|| str[i] == '\n' || str[i] == '\r'
+			|| str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		ret = ret * 10 + sign * (*str++ - '0');
-		if (ret > INT_MAX)
-			return (-1);
-		else if (ret < INT_MIN)
-			return (0);
+		isneg *= -1;
+		i++;
 	}
-	return ((int)ret);
+	while (ft_isdigit(str[i]))
+	{
+		num = (num * 10) + (str[i] - '0');
+		i++;
+	}
+	return (num * isneg);
 }
-
 /*
 int main()
 {
@@ -48,7 +52,6 @@ int main()
     printf("%d", result);
     printf("%d", result2);
 }
-
 
 int	ft_atoi(const char *str)
 {

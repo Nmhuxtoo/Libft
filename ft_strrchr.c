@@ -6,7 +6,7 @@
 /*   By: jdias-go <jdias-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:31:27 by jdias-go          #+#    #+#             */
-/*   Updated: 2024/05/17 15:41:31 by jdias-go         ###   ########.fr       */
+/*   Updated: 2024/06/03 23:01:17 by jdias-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 // finish
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*ret;
 

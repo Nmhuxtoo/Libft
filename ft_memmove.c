@@ -6,14 +6,14 @@
 /*   By: jdias-go <jdias-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:12:42 by jdias-go          #+#    #+#             */
-/*   Updated: 2024/05/17 16:38:24 by jdias-go         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:58:30 by jdias-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t len)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
 	unsigned char		*p_str1;
 	unsigned const char	*p_str2;
