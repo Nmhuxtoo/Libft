@@ -43,6 +43,7 @@ int	ft_atoi(const char *str)
 	}
 	return (num * isneg);
 }
+
 /*
 int main()
 {
@@ -51,22 +52,5 @@ int main()
     int result2 = atoi(test);
     printf("%d", result);
     printf("%d", result2);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	nb;
-	int	sign;
-
-	nb = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	while (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			sign = -sign;
-	while (*str <= '9' && *str >= '0')
-		nb = (nb * 10) + (*str++ - '0');
-	return (nb * sign);
 }
 */

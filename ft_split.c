@@ -14,8 +14,6 @@
 #include <stdio.h>
 #include "libft.h"
 
-// Need to understand better, recode from scratch
-
 static	int	count_words(const char *str, char c)
 {
 	int	i;
@@ -82,6 +80,7 @@ char	**ft_split(char const *s, char c)
 	split[j] = 0;
 	return (split);
 }
+
 /*
 int main(void)
 {
